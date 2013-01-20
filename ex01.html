@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery na Prática</title>
+    <script>
+        function alertFunction() {
+            alert("Olá, Mundo!");
+        }
+
+        function confirmFunction() {
+            var opcao = confirm("Confirmar exclusão do registro?");
+            console.log(opcao);
+        }
+
+        function promptFunction() {
+            var nome = prompt("Informe seu nome:");
+            console.log(nome);
+        }
+    </script>    
+</head>
+<body>
+    <button type="button" onclick="alertFunction()">Alert</button>
+    <button type="button" onclick="confirmFunction()">Confirm</button>
+    <button type="button" onclick="promptFunction()">Prompt</button>
+</body>
+</html>
