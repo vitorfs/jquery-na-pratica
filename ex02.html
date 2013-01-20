@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery na Prática</title>
+    <script src="js/jquery-1.9.0.min.js"></script>
+    <style>
+        .destacar {
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p class="destacar">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <script>
+        $(document).ready(function () {
+            
+            $("body").click(function () {
+                alert("Click no body");
+            });
+            
+            $("p").click(function (event) {
+                event.stopPropagation();
+                $(this).hide();
+            });
+            
+            $("p").hover(function () {
+                $(this).toggleClass("destacar");
+            });
+        });
+    </script>
+</body>
+</html>
