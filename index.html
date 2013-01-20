@@ -5,7 +5,7 @@
     <title>jQuery na Prática</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="js/jquery-1.9.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -24,8 +24,8 @@
         <div class="row">
             <div class="span3">
                 <ul class="nav nav-tabs nav-stacked">
-                    <li><a href="#">Fundamentos JavaScript</a></li>
-                    <li><a href="#">Seletores jQuery</a></li>
+                    <li><a href="#fundamentos-js">Fundamentos JavaScript</a></li>
+                    <li><a href="#seletores-jquery">Seletores jQuery</a></li>
                 </ul>
             </div>
             <div class="span9">
@@ -33,7 +33,33 @@
                     <div class="page-header">
                         <h1>Fundamentos JavaScript</h1>
                     </div>
+                    <p>Experiência em programação com linguagens como C, Visual Basic ou Java é útil, mas não obrigatório.</p>
+
+                    <h2>Variáveis</h2>
+                    <p>Dê nome aos dados utilizando a palavra reservada <code>var</code>. Normalmente o nome da variável é escrita em <code>snake_case</code>. Linha termina em ponto e vírgula.</p>
+                    <pre>var titulo = "jQuery na Prática";</pre>
+                    <p>JavaScript é uma linguagem de tipagem fraca, dinâmica e implícita.</p>
+                    <pre>
+var numero = 100;                 //int
+var titulo = "jQuery na Prática"; //string
+var quantidade = 5.7;             //float
+var erro = true;                  //boolean</pre>
+                    
                     <h2>Funções Globais</h2>
+                    <p>A função <code>alert</code> exibe um <em>pop-up</em> no browser do usuário com a mensagem passada via parâmetro.</p>
+                    <pre>alert(“Olá, mundo!”);</pre>
+                    <p>A função <code>confirm</code> exibe uma caixa de confirmação ao usuário. Retorna <code>true</code> ou <code>false</code>.</p>
+                    <pre>var resposta = confirm(“Confirmar exclusão do registro?”);</pre>
+                    <p>A função <code>prompt</code> retorna o valor informado pelo usuário em forma de string</p>
+                    <pre>var idade = prompt(“Informe sua idade:”);</pre>
+
+                    <h2>Funções de String</h2>
+                    <pre>var titulo = "jQuery na Pratica";
+titulo.toLowerCase();     // “jquery na prática”
+titulo.toUpperCase();     // “JQUERY NA PRÁTICA”
+titulo.charAt(2);         // “u”
+titulo.replace(“a”, “4”); // “jQuery n4 Prátic4”
+titulo.split(“ ”);        // [“jQuery”, “na”, “Prática”]</pre>
                 </section>
             </div>
         </div>
