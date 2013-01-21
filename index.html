@@ -147,6 +147,30 @@ $(".destacar"); // todos elementos que possuam classe <strong>destacar</strong><
                     <div class="page-header">
                         <h1>Manipulando CSS</h1>
                     </div>
+                    <p><code>.css()</code> Utilizado para recuperar ou definir um determinado atributo css ao elemento selecionado.</p>
+                    <pre>$("p").css("font-size"); // retorna o valor do font-size do elemento &lt;p&gt;
+
+$("p").css("font-size", "12px"); // define o font-size do elemento &lt;p&gt; para 12px
+
+$(p").css(font-size", 24px")
+     .css(font-weight", bold")
+     .css(line-height", 32px");
+
+// ou um map
+
+$(p").css({font-size": 24px",
+           font-weight": bold",
+           line-height": 32px"});
+</pre>
+                    <p><code>.addClass()</code> Adiciona uma determina classe ao elemento.</p>
+                    <p><code>.removeClass()</code> Remove uma determinada classe do elemento. Se o parâmetro for omitido, remove todas as classes do elemento.</p>
+                    <p><code>.toggleClass()</code> Alterna entre incluir e remover uma determinada classe. Se o elemento já possuir uma classe, o jQuery remove. Se não possuir, inclui.</p>
+                    <p><code>.hasClass()</code> Retorna <code>true</code> caso o elemento possua a classe ou <code>false</code> caso contrário.</p>
+
+                    <h2>Visibilidade</h2>
+                    <p><code>.show()</code> Altera o <code>display</code> do elemento para <code>normal</code>.</p>
+                    <p><code>.hide()</code> Altera o <code>display</code> do elemento para <code>none</code>.</p>
+                    <p><code>.toggle()</code> Alterna entre <code>normal</code> e <code>none</code>.</p>
                 </section>                
             </div>
         </div>
