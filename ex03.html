@@ -13,10 +13,9 @@
         <input type="password" name="senha">
         <button type="button">Serializar</button>
     </form>
-    <minhatag>Vitor</minhatag>
     <script>
         $(document).ready(function () {
-            console.log( $("minhatag").text() );
+            console.log( $("form").serialize() );
         });
     </script>
 </body>
