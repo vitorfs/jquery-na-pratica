@@ -395,11 +395,79 @@ $("input").vazio();</pre>
     // execução ao terminar requisição
   }
 });</pre>
+                    <h2>$.load</h2>
+                    <p>Permite especificar um elemento para receber a resposta e uma função de callback.</p>
+                    <pre>$('#resultado').load('usuarios.php');
+// A resposta da requisição à página usuarios.php é inserida dentro do elemento #resultado
+
+$('#resultado').load('usuarios.php', function () {
+  // Executa após terminar a requisição
+});
+
+$('#resultado').load('usuarios.php', { id: 10 } function () {
+  // Executa após terminar a requisição
+});</pre>
+                    <h2>$.post</h2>
+                    <p><code>$.post(url [,data] [,success(data, textStatus, jqXHR)] [,dataType])</code></p>
+                    <p>O método post do jQuery corresponde à seguinte implementação:</p>
+                    <pre>$.ajax({
+  type: "POST",
+  url: url,
+  data: data,
+  success: success,
+  dataType: dataType
+});
+
+$.post("login.php", { usuario: "vitorfs", senha: "123456" });
+
+$.post("login.php", $("form").serialize(), function () {
+  // Executa callback
+});</pre>
+                    <h2>$.get</h2>
+                    <p><code>$.get(url [,data] [,success(data, textStatus, jqXHR)] [,dataType])</code></p>
+                    <p>O método get do jQuery corresponde à seguinte implementação:</p>
+                    <pre>$.ajax({
+  url: url,
+  data: data,
+  success: success,
+  dataType: dataType
+});
+
+$.get("cidades.php", { uf: "mg" }, function (data) { 
+  $("select").html(data);
+});</pre>
                 </section>
                 <section id="formularios">
                     <div class="page-header">
                         <h1>Formulários</h1>
                     </div>
+                    <h2>Serializando um Formulário</h2>
+                    <p>A função <code>.serialize()</code> do jQuery nos permite formatar os dados de um formulário. Considere o seguinte formulário:</p>
+                    <pre>&lt;form method="post" action="cadastro.php" id="cadastro"&gt;
+  Nome: &lt;input type="text" name="nome" id="nome" value="Vitor"&gt;&lt;br&gt;
+  Email: &lt;input type="text" name="email" id="email" value="vitorfs@gmail.com"&gt;&lt;br&gt;
+  Cpf: &lt;input type="text" name="cpf" id="cpf" value="123456789012"&gt;&lt;br&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</pre>
+                    <p>Ao executarmos o comando <code>$("#cadastro").serialize()</code> teríamos o seguinte retorno:</p>
+                    <pre>nome=Vitor&email=vitorfs@gmail.com&cpf=123456789012</pre>
+
+                    <h2>Serializando em Array</h2>
+                    <p>Considerando o mesmo formulário, ao executar a chamada <code>$("#cadastro").serializeArray()</code> teríamos o seguinte retorno:</p>
+                    <pre>[
+  {
+    name = “nome”,
+    value = “vitor”
+  },
+  {
+    name = “email”,
+    value = “vitorfs@gmail.com”
+  },
+  {
+    name = “cpf”,
+    value = “123456789012”
+  }
+]</pre>
                 </section>                
             </div>
         </div>
