@@ -175,22 +175,138 @@ $(p").css({font-size": 24px",
                 <section id="manipulando-conteudo">
                     <div class="page-header">
                         <h1>Manipulando Conteúdo</h1>
+                        <p><code>.html()</code> Retorna o conteúdo html da seleção.</p>
+                        <p><code>.text()</code> Retorna o conteúdo texto da seleção.</p>
+                        <p><code>.append()</code> Insere conteúdo dentro do final da seleção.</p>
+                        <p><code>.prepend()</code> Insere conteúdo dentro do início da seleção.</p>
+                        <p><code>.before()</code> Insere conteúdo antes da seleção.</p>
+                        <p><code>.after()</code> Insere conteúdo após a seleção.</p>
                     </div>
                 </section>
                 <section id="eventos">
                     <div class="page-header">
                         <h1>Eventos</h1>
                     </div>
+                    <p>Estes métodos são utilizados para adicionar comportamento que reagem à interação do usuário com o browser.</p>
+
+                    <h2>Eventos de Mouse</h2>
+                    <p><code>.click()</code> Dispara no evento de click do mouse</p>
+                    <pre>$("p").click(function () {
+  $("p").hide();
+});</pre>
+                    <p><code>.dblclick()</code> Dispara com click duplo</p>
+                    <p><code>.hover()</code> Dispara quando mouse entra e/ou sai do elemento</p>
+                    <pre>$("p").hover(
+  function () { $(this).addClass("destacar");},
+  function () { $(this).removeClass("destacar");}
+);</pre>
+
+                    <p><code>.mousedown()</code> Dispara quando o botão do mouse é pressionado.</p>
+                    <p><code>.mouseenter()</code> Dispara quando o mouse entra no elemento.</p>
+                    <p><code>.mouseleave()</code> Dispara quando o mouse sai do elemento.</p>
+                    <p><code>.mousemove()</code> Dispara quando o mouse se move.</p>
+                    <p><code>.mouseup()</code> Dispara quando ao término do click do mouse.</p>
+
+                    <h2>Eventos de Teclado</h2>
+                    <p><code>.keydown()</code> Dispara ao apertar a tecla.</p>
+                    <p><code>.keypress()</code> Dispara ao pressionar a tecla.</p>
+                    <p><code>.keyup()</code> Dispara ao soltar a tecla.</p>
+
+                    <h2>Eventos de Formulário</h2>
+                    <p><code>.blur()</code> Dispara ao input perder o foco.</p>
+                    <p><code>.change()</code> Dispara quando um valor é alterado.</p>
+                    <p><code>.focus()</code> Dispara quando um input recebe foco.</p>
+                    <p><code>.select()</code> Dispara ao selecionar um texto, option, radio.</p>
+                    <p><code>.submit()</code> Dispara submeter o formulário.</p>
+
+                    <h2>Objeto Event</h2>
+                    <pre>$("body").keypress(function (event) {
+
+});</pre>
+                    <p><code>event.which</code> código númerico da tecla pressionada.</p>
+                    <p><code>event.preventDefault()</code> evita a ação padrão do browser.</p>
+                    <p><code>event.stopPropagation()</code> evita propagação do evento no DOM.</p>
                 </section>
                 <section id="animacao">
                     <div class="page-header">
                         <h1>Animação</h1>
                     </div>
+                    <h2>Slide</h2>
+                    <code>.slideUp([duração][,callback])</code>
+                    <ul style="margin-top:10px">
+                        <li>duração
+                            <ul>
+                                <li>Tempo da animação em milisegundos</li>
+                                <li>Default 400 milisegundos</li>
+                                <li>Aceita parâmetros "slow" (600ms) e "fast" (200ms)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li>callback
+                            <ul>
+                                <li>Função que será executada após o término da animação</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <pre>$("p").slideUp("slow");
+
+$("p").slideUp(1000, function () {
+  alert("Concluiu a animação!");
+});
+
+$("p").slideDown("fast");
+
+$("p").slideToggle();</pre>
+
+                    <h2>Fade</h2>
+                    <code>.slideIn([duração][,callback])</code>
+                    <ul style="margin-top:10px">
+                        <li>duração
+                            <ul>
+                                <li>Tempo da animação em milisegundos</li>
+                                <li>Default 400 milisegundos</li>
+                                <li>Aceita parâmetros "slow" (600ms) e "fast" (200ms)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li>callback
+                            <ul>
+                                <li>Função que será executada após o término da animação</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <pre>$("p").slideIn("slow");
+
+$("p").slideIn(1000, function () {
+  alert("Concluiu a animação!");
+});
+
+$("p").slideOut("fast");
+
+$("p").fadeToggle();</pre>
                 </section>
                 <section id="funcoes-jquery">
                     <div class="page-header">
                         <h1>Funções jQuery</h1>
                     </div>
+                    <p>É possível adicionar funções ao <strong>prototype</strong> do jQuery, o que permite chamá-las utilizando a seguinte notação: <code>$("this").destacar()</code>.</p>
+                    <pre>$.fn.vazio = function () {
+  var value = $(this).val();
+  if (value == "") {
+    return true;
+  }
+  else {
+    return false;
+  }
+};
+
+$("input").vazio();</pre>
                 </section>
                 <section id="ajax">
                     <div class="page-header">
