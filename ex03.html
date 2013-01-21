@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery na Prática</title>
+    <script src="js/jquery-1.9.0.min.js"></script>
+</head>
+<body>
+    <form>
+        Nome: <input type="text" name="nome" id="teste"><br />
+        Email: <input type="text" name="email"><br />
+        Cpf: <input type="text" name="cpf"><br />
+        <input type="password" name="senha">
+        <button type="button">Serializar</button>
+    </form>
+    <minhatag>Vitor</minhatag>
+    <script>
+        $(document).ready(function () {
+            console.log( $("minhatag").text() );
+        });
+    </script>
+</body>
+</html>
