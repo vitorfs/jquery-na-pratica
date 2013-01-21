@@ -232,8 +232,8 @@ $(p").css({font-size": 24px",
                         <h1>Animação</h1>
                     </div>
                     <h2>Slide</h2>
-                    <code>.slideUp([duração][,callback])</code>
-                    <ul style="margin-top:10px">
+                    <p><code>.slideUp([duração][,callback])</code></p>
+                    <ul>
                         <li>duração
                             <ul>
                                 <li>Tempo da animação em milisegundos</li>
@@ -262,8 +262,8 @@ $("p").slideDown("fast");
 $("p").slideToggle();</pre>
 
                     <h2>Fade</h2>
-                    <code>.slideIn([duração][,callback])</code>
-                    <ul style="margin-top:10px">
+                    <p><code>.slideIn([duração][,callback])</code></p>
+                    <ul>
                         <li>duração
                             <ul>
                                 <li>Tempo da animação em milisegundos</li>
@@ -312,6 +312,89 @@ $("input").vazio();</pre>
                     <div class="page-header">
                         <h1>Ajax</h1>
                     </div>
+                    <p>A biblioteca jQuery conta com uma solução completa de AJAX. As funções e métodos contidos nela nos permite carregar dados do servidor sem recarregar a página no browser.</p>
+                    <h2>$.ajax</h2>
+                    <p><code>$.ajax([opcoes])</code></p>
+                    <p>O parâmetro <code>opcoes</code> é um map que aceita os seguintes valores:</p>
+                    
+                    <div class="well well-small">
+                        <h4>async <small>default: true</small></h4>
+                        <p>Tipo: Boolean</p>
+                        <p>Define se a requisição será síncrona ou assíncrona.</p>
+                        <hr>
+
+                        <h4>beforeSend</h4>
+                        <p>Tipo: Function</p>
+                        <p>Função que será executada antes de realizar a requisição.</p>
+                        <hr>
+
+                        <h4>cache <small>(default: true, false para dataType 'script' e 'jsonp')</small></h4>
+                        <p>Tipo: Boolean</p>
+                        <p>Determina se a requisição será armazenada no cache do browser do usuário ou não.</p>
+                        <hr>
+
+                        <h4>complete</h4>
+                        <p>Tipo: Function</p>
+                        <p>Função que será executada após a conclusão da requisição.</p>
+                        <hr>
+
+                        <h4>contentType <small>(default: 'application/x-www-form-urlencoded; charset=UTF-8')</small></h4>
+                        <p>Tipo: String</p>
+                        <hr>
+
+                        <h4>data</h4>
+                        <p>Tipo: Object, String</p>
+                        <p>Representa os dados que serão enviados para o servidor</p>
+                        <hr>
+
+                        <h4>dataType <small>(default: Intelligent Guess (xml, json, script, or html))</small></h4>
+                        <p>Tipo: String</p>
+                        <hr>
+
+                        <h4>error</h4>
+                        <p>Tipo: Function</p>
+                        <p>Função que será executada em caso de erro.</p>
+                        <hr>
+
+                        <h4>success</h4>
+                        <p>Tipo: Function</p>
+                        <p>Função que será executada em caso de sucesso.</p>
+                        <hr>
+
+                        <h4>timeout</h4>
+                        <p>Tipo: Number</p>
+                        <p>Define o tempo em milisegundos em que a requisição irá aguardar antes de dar timeout.</p>
+                        <hr>
+
+                        <h4>type <small>(default: 'GET')</small></h4>
+                        <p>Tipo: String</p>
+                        <p>Define se a requisição será do tipo <code>GET</code> ou <code>POST</code>.</p>
+                        <hr>
+
+                        <h4>url <small>(default: Página atual)</small></h4>
+                        <p>Tipo: String</p>
+                        <p>Define a página para onde a requisição será feita.</p>
+                    </div>
+
+                    <p>Exemplo de uma requisição assíncrona utilizando a função <code>$.ajax</code>:</p>
+                    <pre>$.ajax({
+  url: 'usuarios.php',
+  data: { id: "10", acao: "editar" },
+  cache: false,
+  type: "POST",
+  beforeSend: function () {
+    // execução antes de realizar requisição
+  },
+  success: function (data) {
+    // execução em caso de sucesso
+  },
+  error: function () {
+    // execução em caso de erro
+  }
+  complete: function () {
+    // execução ao terminar requisição
+  }
+});</pre>
                 </section>
                 <section id="formularios">
                     <div class="page-header">
