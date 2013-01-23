@@ -2,159 +2,144 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>jQuery na Prática</title>
     <script src="js/jquery-1.9.0.min.js"></script>
-    <style type="text/css">
-    	body {
-    		margin: 0;
-    		padding: 0;
-    		font-family: Tahoma;
-    		background: url('gray_jean.png');
-    		height: 100%;
-    	}
-
-    	div.header h1 {
-    		margin: 0;
-    	}
-
-    	div.header {
-    		background: url('navy_blue.png');
-    		height: 100px;
-    	}
-
-    	div.header h1 {
-    		padding-top: 35px;
-    		color: #ffffff;
-    		font-size: 48px;
-    		letter-spacing: 1px;    		
-    	}
-
-    	div.wrapper {
-    		width: 960px;
-    		margin: 0 auto;
-    		display: block;
-    	}
-
-    	div.menu {
-    		height: 37px;
-    		background: url("bg_menu.png");
-    	}
-    	div.center {
-    		min-height: 500px;
-    		background: #fff;
-    		margin-top: 25px;
-    		border: 1px solid #ddd;
-    		border-top-right-radius: 2em;
-    		border-top-left-radius: 2em;
-    	}
-
-    	div.menu ul {
-    		margin: 0;
-    		padding: 0;
-    		font-size: 0;
-    	}
-
-    	div.menu ul li {
-    		list-style: none;
-    		display: inline;
-    		padding: 0;
-    		margin: 0;
-    	}
-
-    	div.menu ul li a {
-    		font-family: Helvetica;
-    		font-size: 14px;
-    		line-height: 37px;
-    		font-weight: bold;
-    		color: #777;
-    		text-decoration: none;
-    		display: inline-block;
-    		padding: 0 20px;
-    		border-left: 1px solid #ddd;
-    	}
-
-    	li.last a {
-    		border-right: 1px solid #ddd;
-    	}
-
-    	div.menu ul li a:hover {
-    		color: #333;
-    	}
-
-    	div.center h2 {
-    		color: #5a5a5a;
-    		border-bottom: 1px solid #eeeeee;
-    		padding: 20px 0 5px;
-    	}
-
-    	div.center div.content {
-    		padding: 0 20px;
-    	}
-
-    	table {
-    		border-collapse: collapse;
-    		border-radius: 4px;
-    		width: 100%;
-    	}
-
-    	table td, table th {
-    		border: 1px solid #999;
-    		padding: 5px;
-    	}
-
-    	div.opacity {
-    		width: 100%;
-    		height: 100%;
-    		top: 0;
-    		left: 0;
-    		position: fixed;
-    		opacity: 0.6;
-    		background: #999;
-    		z-index: 1000;
-    	}
-
-    	div.modal {
-    		width: 500px;
-    		height: 400px;
-    		position: absolute;
-    		margin-top:-200px;
-    		margin-left: -250px;
-    		top: 50%;
-    		left: 50%;
-    		background: #fff;
-    		z-index: 1001;
-    		border: 1px solid #999;
-    		border-radius: 6px;
-    		box-shadow: 0px 3px 7px #555;
-    	}
-
-    	div.modal h2 {
-			color: #5a5a5a;
-    		border-bottom: 1px solid #eeeeee;
-    		padding: 20px 0 5px;
-    		margin: 0 10px;
-    	}
-
-    	a.close {
-    		float: right;
-    		font-family: Tahoma;
-    		color: #333;
-    		margin-top: 20px;
-    		margin-right: 30px;
-    		font-weight: bold;
-    		text-decoration: none;
-    	}
-
-    	.btn {
-    		background: #fff;
-    		border: 1px solid #999;
-    		border-radius: 4px;
-    		padding: 4px 8px;
-    		cursor: pointer;
-    		background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);
-    	}
-
-    </style>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: tahoma, arial, verdana;
+			background: url('gray_jean.png');
+			height: 100%;
+		}
+		
+		div.header {
+			background: url('navy_blue.png');
+			height: 150px;
+		}
+		
+		div.header h1 {
+			margin: 0;
+			color: white;
+			padding-top: 95px;
+		}
+		
+		div.wrapper {
+			width: 960px;
+			margin: 0 auto;
+			display: block;
+		}
+		
+		div.menu {
+			height: 37px;
+			background: url('bg_menu.png') repeat-x;
+		}
+		
+		div.center {
+			background: #fff;
+			height: 700px;
+			border: 1px solid #CCC;
+			margin-top: 25px;
+			border-top-left-radius: 15px;
+			border-top-right-radius: 15px;
+		}
+		
+		div.menu ul {
+			margin: 0;
+			padding: 0;
+			font-size: 0;
+		}
+		
+		div.menu ul li {
+			display: inline;
+			line-height: 37px;
+		}
+		
+		div.menu ul li a {
+			line-height: 37px;
+			display: inline-block;
+			font-size: 14px;
+			padding: 0 15px;
+			color: #999;
+			text-decoration: none;
+			font-weight: bold;
+			border-left: 1px solid #c0c0c0;
+		}
+		
+		li.last a {
+			border-right: 1px solid #c0c0c0;
+		}
+		
+		div.menu ul li a:hover {
+			color: #333;
+		}
+		
+		div.content {
+			padding: 0 20px;
+		}
+		
+		div.content table {
+			width: 100%;
+			border-collapse: collapse;
+			text-align: center;
+		}
+		
+		div.content table tr td, div.content table tr th {
+			border: 1px solid #999;
+		}
+		
+		button {
+			background: white;
+			border: 1px solid #999;
+			border-radius: 4px;
+			padding: 3px 6px;
+			background-image: linear-gradient(to bottom, #FFFFFF, #DDDDDD);
+			cursor: pointer;
+		}
+		
+		div.opacity {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 1001;
+			background: #999;
+			opacity: 0.6;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+		}
+		
+		div.modal {
+			width: 500px;
+			height: 500px;
+			background: white;
+			border: 1px solid #999;
+			border-radius: 8px;
+			box-shadow: 0 3px 7px #333;
+			position: absolute;
+			margin-left: -250px;
+			margin-top: -250px;
+			top: 50%;
+			left: 50%;
+			z-index: 1002;
+		}
+		
+		a.fechar {
+			float: right;
+			font-weight: 900;
+			color: #111;
+			text-decoration: none;
+			padding: 0 20px;
+		}
+		
+		div.modal-header h2 {
+			padding: 0 20px;
+		}
+		
+		div.modal-body {
+			padding: 0 20px;
+		}
+	</style>
 </head>
 <body>
 	<div class="header">
@@ -167,60 +152,115 @@
 			<ul>
 				<li><a href="#">Cotações</a></li>
 				<li class="last"><a href="#">Cadastro</a></li>
-			</ul>			
+			</ul>
 		</div>
 	</div>
 	<div class="center wrapper">
 		<div class="content">
 			<h2>Cotações</h2>
-			<button type="button" class="btn adicionar-cotacao" style="float:right;margin-bottom:10px;">Adiconar</button>
-			<table>
+			<button type="button" style="float:right;margin-bottom:10px;" id="add">Adicionar</button>
+			<table id="tbl-cotacao">
 				<thead>
 					<tr>
-						<th style="width:120px">Par cambial</th>
+						<th>Nome</th>
 						<th>Preço</th>
 						<th>Variação</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+						<td>USD/BRL</td>
+						<td>2,0495</td>
+						<td>+0,34%</td>
+					</tr>
+					<tr>
 						<td>EUR/BRL</td>
-						<td>2,7295</td>
-						<td>+0,0095</td>
+						<td>2,7211</td>
+						<td>+0,04%</td>
 					</tr>
 					<tr>
-						<td>CHF/BRL</td>
-						<td>2,2062</td>
-						<td>+0,0157</td>
-					</tr>
-					<tr>
-						<td>GBP/BRL</td>
-						<td>3,2512</td>
-						<td>+0,0170</td>
+						<td>USD/EUR</td>
+						<td>0,7506</td>
+						<td>-0,04%</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-	<div class="modal" style="display: none;">
+	<div class="modal" style="display: none">
 		<div class="modal-header">
-			<a href="#" class="close">X</a>
+			<a href="#" class="fechar">X</a>
 			<h2>Incluir Cotação</h2>
+		</div>
+		<div class="modal-body">
+			<form>
+				<table>
+					<tr>
+						<td>Nome</td>
+						<td><input type="text" id="nome"></td>
+					</tr>
+					<tr>
+						<td>Preço</td>
+						<td><input type="text" id="preco"></td>
+					</tr>
+					<tr>
+						<td>Variação</td>
+						<td><input type="text" id="variacao"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button type="button" id="btn-salvar">Salvar</button>
+							<script>
+								$(function () {
+								
+									$("#add").click(function () {
+										$(".opacity").show();
+										$(".modal").slideDown();
+									});
+									
+									$("a.fechar").click(function () {
+										$(".modal").slideUp(400, function () {
+											$(".opacity").hide();
+										});				
+									});
+									
+									$("#btn-salvar").click(function () {
+										var nome = $("#nome").val();
+										var preco = $("#preco").val();
+										var variacao = $("#variacao").val();
+										
+										$("#tbl-cotacao tbody").append("<tr><td>"+nome+"</td><td>"+preco+"</td><td>"+variacao+"</td></tr>");
+										
+										$(".modal").slideUp(400, function () {
+											$(".opacity").hide();
+										});				
+									});
+								});
+							</script>							
+						</td>
+					</tr>
+				</table>
+			</form>		
 		</div>
 	</div>
 	<div class="opacity" style="display: none;"></div>
-
+	
 	<script>
 		$(function () {
-			$("a.close").click(function () {
+		
+			$("#add").click(function () {
+				$(".opacity").show();
+				$(".modal").slideDown();
+			});
+			
+			$("a.fechar").click(function () {
 				$(".modal").slideUp(400, function () {
 					$(".opacity").hide();
-				});
+				});				
 			});
-
-			$("button.adicionar-cotacao").click(function () {
-				$(".modal").slideDown();
-				$(".opacity").show();				
+			
+			$("#btn-salvar").click(function () {
+				var nome = $("")
 			});
 		});
 	</script>

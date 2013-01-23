@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery na Prática</title>
+    <script src="js/jquery-1.9.0.min.js"></script>
+	
+	
+	<style>
+		.vermelho {
+			background: red;
+			font-weight: bold;
+			color: #fff;
+		}
+	</style>
+	
+    <script>
+		function appendElemento (string) {
+			$("ul").append("<li>" + string + "</li>");
+		}
+		
+		function prependElemento (string) {
+			$("ul").prepend("<li>" + string + "</li>");
+		}	
+
+		function adicionaBefore (string) {
+			$("ul").before("<p style='background:yellow'>" + string + "</p>");
+		}
+		
+		function adicionaAfter (string) {
+			$("ul").after("<p style='background:cyan'>" + string + "</p>");
+		}		
+		
+    </script>	
+</head>
+<body>
+	<h1>jQuery na Prática</h1>
+	<h3>Dados do Curso:</h3>
+	<ul>
+		<li>Data: <span class="data">21/05/2013</span></li>
+		<li>Hora: <span class="hora">19:00</span></li>
+		<li>Local: Granbery</li>
+	</ul>
+	<input type="text" id="texto">
+	<button type="button" onclick="appendElemento($('#texto').val())">Append</button>
+	<button type="button" onclick="prependElemento($('#texto').val())">Prepend</button>
+	<button type="button" onclick="adicionaBefore($('#texto').val())">Before</button>
+	<button type="button" onclick="adicionaAfter($('#texto').val())">After</button>
+	
+	<h1>Inscrição</h1>
+	
+	<table>
+		<tr>
+			<td>Nome: </td>
+			<td><input type="text" name="nome" id="nome" maxlength="30"></td>
+		</tr>
+		<tr>
+			<td>Email: </td>
+			<td><input type="text" name="email" id="email" maxlength="35"></td>
+		</tr>		
+		<tr>
+			<td>Senha: </td>
+			<td><input type="password" name="senha" id="senha"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button type="submit">Enviar</button></td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

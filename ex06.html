@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery na Prática</title>
+    <script src="js/jquery-1.9.0.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			
+			$("table").click(function () {
+				//alert("teste");
+			});
+			$("button[type=button]").click(function (event) {
+				event.stopPropagation();
+				$("h1").css("background", "red");
+			});
+			
+			
+			
+			$("li").hover(function () { $(this).css("background", "cyan"); },
+                          function () { $(this).css("background", "yellow");} );
+						  
+			/*$("#container").mouseenter(function () {
+				$(this).append("<p>Entrou :)!</p>");
+			});
+			
+			$("#container").mouseleave(function () {
+				$(this).append("<p>Saiu :(!</p>");
+			});*/
+			
+			$("#container").dblclick(function () {
+				var largura = parseInt($(this).css("width"));
+				$(this).css("width", (largura + 25) + "px");
+				$(this).css("height", (largura + 25) + "px");
+			});
+			
+			$("#nome").keyup(function (event) {
+				if ($("#nome").val().length == 8) {
+					$("#email").focus();
+				}
+			});
+			
+			$("form").submit(function() {
+				alert("foi!");
+			});
+			
+		});
+	</script>
+	
+	<style>
+		li {
+			background: yellow;
+		}
+		
+		div#container p {
+			font-weight: bold;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<h1>jQuery na Prática</h1>
+	<h3>Dados do Curso:</h3>
+	<ul>
+		<li>Data: <span class="data">21/05/2013</span></li>
+		<li>Hora: <span class="hora">19:00</span></li>
+		<li>Local: Granbery</li>
+	</ul>
+	
+	<h1>Inscrição</h1>
+	
+	<form method="get" action="?">
+	<table>
+		<tr>
+			<td>Nome: </td>
+			<td><input type="text" name="nome" id="nome" maxlength="30"></td>
+		</tr>
+		<tr>
+			<td>Email: </td>
+			<td><input type="text" name="email" id="email" maxlength="35"></td>
+		</tr>		
+		<tr>
+			<td>Senha: </td>
+			<td><input type="password" name="senha" id="senha"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button type="submit">Enviar</button>
+				<button type="button">Teste</button>
+			</td>
+			
+		</tr>
+	</table>
+	</form>
+	
+	<div style="width:50px;height:50px;background:grey" id="container"></div>
+	
+	
+
+
+</body>
+</html>

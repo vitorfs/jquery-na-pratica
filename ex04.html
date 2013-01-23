@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery na Prática</title>
+    <script src="js/jquery-1.9.0.min.js"></script>
+	
+	<style>
+		.vermelho {
+			background: red;
+			font-weight: bold;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<h1>jQuery na Prática</h1>
+	<h3>Dados do Curso:</h3>
+	<ul>
+		<li>Data: <span class="data">21/05/2013</span></li>
+		<li>Hora: <span class="hora">19:00</span></li>
+		<li>Local: Granbery</li>
+	</ul>
+	
+	<h1>Inscrição</h1>
+	
+	<table>
+		<tr>
+			<td>Nome: </td>
+			<td><input type="text" name="nome" id="nome" maxlength="30"></td>
+		</tr>
+		<tr>
+			<td>Email: </td>
+			<td><input type="text" name="email" id="email" maxlength="35"></td>
+		</tr>		
+		<tr>
+			<td>Senha: </td>
+			<td><input type="password" name="senha" id="senha"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button type="submit">Enviar</button></td>
+		</tr>
+	</table>
+	
+    <script>
+		console.log( $("*") );
+		console.log( $("input#nome") );
+		console.log( $("span.data") );
+		console.log( $("ul li") );
+		console.log( $("ul li:first") );
+		$("table tr td").css("border", "1px solid black");
+		$("ul li:even").addClass("vermelho");
+		$("h3").hide();
+		$("span.hora").html("21:00")
+    </script>
+</body>
+</html>
