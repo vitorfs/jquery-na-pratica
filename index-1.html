@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery na Prática</title>
+    <script src="js/jquery-1.9.0.min.js"></script>
+	<link href="estilo.css" rel="stylesheet">
+</head>
+<body>
+	<div class="header">
+		<div class="wrapper">
+			<h1>Finanças</h1>
+		</div>
+	</div>
+	<div class="menu">
+		<div class="wrapper">
+			<ul>
+				<li><a href="#">Cotações</a></li>
+				<li class="last"><a href="#">Cadastro</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="center wrapper">
+		<div class="content">
+			<h2>Cotações</h2>
+			<button type="button" style="float:right;margin-bottom:10px;" id="add">Adicionar</button>
+			<table id="tbl-cotacao">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Preço</th>
+						<th>Variação</th>
+						<th>Ação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>USD/BRL</td>
+						<td>2,0495</td>
+						<td>+0,34%</td>
+						<td>
+							<a href="#" class="excluir">Excluir</a>
+							<a href="#" class="alterar">Alterar</a>
+						</td>
+					</tr>
+					<tr>
+						<td>EUR/BRL</td>
+						<td>2,7211</td>
+						<td>+0,04%</td>
+						<td>
+							<a href="#" class="excluir">Excluir</a>
+							<a href="#" class="alterar">Alterar</a>
+						</td>
+					</tr>
+					<tr>
+						<td>USD/EUR</td>
+						<td>0,7506</td>
+						<td>-1,23%</td>
+						<td>
+							<a href="#" class="excluir">Excluir</a>
+							<a href="#" class="alterar">Alterar</a>
+						</td>
+					</tr>
+					<tr>
+						<td>USD/BRL</td>
+						<td>2,0495</td>
+						<td>+4,34%</td>
+						<td>
+							<a href="#" class="excluir">Excluir</a>
+							<a href="#" class="alterar">Alterar</a>
+						</td>
+					</tr>
+					<tr>
+						<td>EUR/BRL</td>
+						<td>2,7211</td>
+						<td>+0,98%</td>
+						<td>
+							<a href="#" class="excluir">Excluir</a>
+							<a href="#" class="alterar">Alterar</a>
+						</td>
+					</tr>
+					<tr>
+						<td>USD/EUR</td>
+						<td>0,7506</td>
+						<td>-0,04%</td>
+						<td>
+							<a href="#" class="excluir">Excluir</a>
+							<a href="#" class="alterar">Alterar</a>
+						</td>
+					</tr>					
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="modal" style="display: none">
+		<div class="modal-header">
+			<a href="#" class="fechar">X</a>
+			<h2>Incluir Cotação</h2>
+		</div>
+		<div class="modal-body">
+			<form>
+				<table>
+					<tr>
+						<td>Nome</td>
+						<td><input type="text" id="nome"></td>
+					</tr>
+					<tr>
+						<td>Preço</td>
+						<td><input type="text" id="preco"></td>
+					</tr>
+					<tr>
+						<td>Variação</td>
+						<td><input type="text" id="variacao"></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button type="button" id="btn-salvar">Salvar</button>
+							<script>
+								function fecharModal() {
+									$(".modal").slideUp(400, function () {
+										$(".opacity").hide();
+									});											
+								}
+								
+								function colorirTabela() {
+									$("#tbl-cotacao tbody tr").each(function () {
+										if ($("td:eq(2)", this).text().charAt(0) == "+") {
+											$(this).addClass("positivo");
+										} else {
+											$(this).addClass("negativo");
+										}
+									});								
+								}
+								
+								function associarExclusao() {
+									$("a.excluir").click(function () {
+										$(this).closest("tr").fadeOut(400, function () {
+											$(this).closest("tr").remove();
+										});
+									});								
+								}
+								
+								function abrirModal() {
+									$(".opacity").show();
+									$(".modal").slideDown();								
+								}
+								
+								$(function () {
+									
+									$.fn.estaVazio = function () {
+										var campo = $(this).closest("tr").children("td:eq(0)").text();
+										if ($(this).val() == "") {
+											return "Campo " + campo + " obrigatório!\n";
+										}
+										return "";
+									};
+									
+									colorirTabela();
+									associarExclusao();									
+									
+									$("a.alterar").click(function () {
+										$(".modal-header h2").html("Alterar Cotação");
+										abrirModal();
+									});
+									
+									$("#add").click(function () {
+										$(".modal-header h2").html("Incluir Cotação");
+										abrirModal();
+									});
+									
+									$("a.fechar").click(fecharModal);
+									
+									$("#btn-salvar").click(function () {
+										
+										var erro = "";
+										
+										$("form input[type=text]").each(function () {
+											erro += $(this).estaVazio();
+										});
+										
+										
+										if (erro != "") {
+											alert(erro);
+											return false;
+										}
+										
+										var nome = $("#nome").val();
+										var preco = $("#preco").val();
+										var variacao = $("#variacao").val();
+										$("#tbl-cotacao tbody").append("<tr><td>"+nome+"</td><td>"+preco+"</td><td>"+variacao+"</td><td><a href='#' class='excluir'>Excluir</a></td></tr>");
+										fecharModal();		
+										colorirTabela();
+										$("a.excluir").unbind("click");
+										associarExclusao();
+									});
+								});
+							</script>							
+						</td>
+					</tr>
+				</table>
+			</form>		
+		</div>
+	</div>
+	<div class="opacity" style="display: none;"></div>
+</body>
+</html>
